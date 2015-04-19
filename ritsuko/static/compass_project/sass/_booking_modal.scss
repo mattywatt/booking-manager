@@ -1,0 +1,140 @@
+.add-booking-modal {
+	h1 {
+		font-size: 15px;
+		padding-bottom: 12px;
+		border-bottom: 1px solid #ddd;
+	}
+
+	width: 600px;
+	border: 1px solid #ddd;
+	background-color: #fff;
+	padding: 20px 30px;
+	position: fixed;
+	top: 115px;
+	left: 30%;
+	z-index: 999;
+
+	.input-section {
+		@include clearfix;
+		padding: 10px 0;
+
+		.input-desc {
+			@include span(2 of 6);
+		}
+		.input-control {
+			@include span(3 of 6 last);
+			position: relative;
+			//font-size: 18px;
+
+			input {
+				padding-left: 30px;
+				width: 140px;
+				float: left;
+				margin-left: 20px;
+			}
+			select {
+				padding-left: 30px;
+				float: left;
+			}
+			.icon-calendar {
+				position: absolute;
+				top: 12px;
+				left: 5px;
+			}
+			.icon-calendar2 {
+				position: absolute;
+				top: 12px;
+				left: 100px;
+			}
+			.icon-user {
+				position: absolute;
+				top: 12px;
+				left: 6px;
+			}
+
+		}
+	}
+
+	.add-booking-bottom {
+		padding-top: 10px;
+		.add-booking-btn {
+			@extend .btn;
+		}
+	}
+}
+
+.page-overlay {
+	opacity: 0.1;
+	background-color: #666;
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+}
+
+// --------------- Datepicker --------------- \\
+
+.ui-icon {
+	display: none;
+}
+
+.ui-state-default {
+	text-decoration: none;
+	font-weight: 300;
+	font-size: 11px;
+	color: rgba(255, 255, 255, 0.5);
+}
+
+.ui-datepicker {
+	position: relative;
+	background-color: #444;
+	padding: 4px;
+}
+
+.ui-datepicker-calendar, .ui-datepicker-title, th {
+	font-size: 11px;
+	font-weight: 300;
+	color: rgba(255,255,255,0.5);
+}
+
+.ui-datepicker-calendar td {
+	width: 24px;
+	height: 18px;
+	padding: 0;
+	text-align: center;
+	background-color: #666;
+}
+
+.ui-datepicker-calendar td:hover {
+	background: #888;
+}
+
+.ui-datepicker-calendar td:hover a {
+	color: #fff;
+}
+
+.ui-datepicker-header {
+	background: #444;
+	height: 25px;
+}
+
+.ui-datepicker-title {
+	text-align: center;
+	line-height: 20px;
+	padding-top: 2px;
+	color: #fff;
+}
+
+.ui-datepicker-prev {
+
+	position: absolute;
+	left: 0;
+}
+
+.ui-datepicker-next {
+	
+	position: absolute;
+	left: 140px;
+}
+
+#ui-datepicker-div { display: none; }

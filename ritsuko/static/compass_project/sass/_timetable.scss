@@ -1,0 +1,109 @@
+.resource-container {
+	@include span(1 of 12);
+	padding: 10px 0 0 20px;
+	min-height: 800px;
+	border-right: 1px solid #ccc;
+
+	.aircraft-list-item {
+		height: 30px;
+		padding-top: 10px;
+	}
+}
+
+.timetable-container {
+	@include span(8 of 12);
+	min-height: 200px;
+}
+
+// stick menu
+.top-bar {
+	@include span(12 of 12);
+	
+	height: 120px;
+	border-bottom: 1px solid #ccc;
+	background-color: #f5f5f5;
+
+	.top-bar-top {
+		@include span(9 of 12);
+		@include push(1);
+		padding-top: 30px;
+		.show-booking-modal-btn {
+			@extend .btn;
+			float: left;
+			margin-left: 10px;
+		}
+		.main-datepicker-btn {
+			input {
+				@extend .btn;
+				//@include border-radius(2px);
+				//width: 70px;
+				float: left;
+				//background-color: #333;
+				border: 0;
+			}
+		}
+	}
+
+	.top-bar-bottom {
+		@include span(9 of 12);
+		@include push(1);
+		height: 63px;
+	}
+
+	// timeline that sits above timetable
+	.time-container {
+		
+		position: relative;
+		height: 100%;
+		margin-left: 20px;
+
+		time {
+			font-size: 11px;
+			font-weight: 300;
+			position: absolute;
+			bottom: 0;
+			left: 0;	
+			background-color: #eee;
+			height: 32px;
+
+			.x-tick {
+				position: absolute;
+			}
+		}
+	}
+}
+
+timetable {
+	@include span(8 of 12);
+	display: block;
+	position: relative;
+	padding-top: 10px;
+	min-height: 800px;
+
+	aircraft {
+		display: block;
+		height: 40px;
+		float: left;
+		width: 100%;
+	}
+	
+	booking {
+		position: absolute;
+		background-color: #c2dce4;
+		height: 32px;
+		min-width: 10px;
+		&:hover {
+			background-color: #7cb2c3;
+			cursor: pointer;
+		}
+	}
+
+	.vertical-rule {
+		position: absolute;
+		border-left: 1px solid #f5f5f5;
+		margin-top: -10px;
+		height: 100%;
+		z-index: -1;
+	}
+
+}

@@ -1,0 +1,137 @@
+<div class="timetable-page-container">
+  
+  <div class="top-bar">
+  	
+  	<div class="top-bar-top">
+  		<!-- Left Side-->
+  		<div class="main-datepicker-btn" ng-click="toggleDatepickerVisible()">
+  			<input readonly datepicker ng-model="timetableDate" value="timetableDate" />
+  		</div>
+  		<!-- Right Side -->
+		<div class="show-booking-modal-btn" ng-click="showBookingModal()">Add Booking</div>
+	</div>
+
+	<div class="top-bar-bottom">
+	  	<div class="time-container">	
+	  		<time></time>
+		</div class="time-container">
+	</div>
+
+  </div>
+
+  <div class="resource-container">
+  	<div class="aircraft-list-item" ng-repeat="plane in bookings"><% plane.name %></div>
+  </div>
+
+  <!-- TIMETABLE -->
+  <timetable bookings="bookings" timetable-date="timetableDate">
+  	<aircraft ng-repeat="plane in bookings">
+  		<booking ng-repeat="booking in plane.bookings"
+  				 style="left: <% booking.leftOffset %>px; width: <% booking.durationWidth %>px;"
+  				 ng-click="viewBooking(booking.id)">
+  		</booking>
+  	</aircraft>
+  </timetable>
+
+  <!-- MODAL -->
+  <div class="add-booking-modal" ng-show="bookingModalVisible">
+
+  	<form>
+  		<h1>Add Booking</h1>
+	  	<!-- Start Booking -->
+	  	<div class="input-section">
+		  	<div class="input-desc">
+		  		Enter a start time for the booking
+		  	</div>
+		  	<div class="input-control">
+		  		<select class="input-start-time" name="start-time" ng-model="booking.startTime">
+		  			<option>00:00</option>
+		  			<option>00:30</option>
+		  			<option>01:00</option>
+		  			<option>01:30</option>
+		  			<option>02:00</option>
+		  			<option>02:30</option>
+		  			<option>03:00</option>
+		  			<option>03:30</option>
+		  			<option>04:00</option>
+		  			<option>04:30</option>
+		  			<option>05:00</option>
+		  			<option>05:30</option>
+		  			<option>06:00</option>
+		  			<option>06:30</option>
+		  		</select>
+		  		<input class="input-start-date" name="start-date" datepicker ng-model="booking.startDate"/>
+
+		  		<span class="icon-time"></span>
+			  	<span class="icon-calendar"></span>
+			  	<span class="icon-calendar2"></span>
+			  	
+
+		  	</div>
+
+		</div>
+
+		<!-- End Booking -->
+	  	<div class="input-section">
+	  		<div class="input-desc">
+		  		Enter a finish time for the booking
+		  	</div>
+		  	<div class="input-control">
+		  		<select class="input-end-time" name="end-time" ng-model="booking.endTime">
+		  			<option>00:00</option>
+		  			<option>00:30</option>
+		  			<option>01:00</option>
+		  			<option>01:30</option>
+		  			<option>02:00</option>
+		  			<option>02:30</option>
+		  			<option>03:00</option>
+		  			<option>03:30</option>
+		  			<option>04:00</option>
+		  			<option>04:30</option>
+		  			<option>05:00</option>
+		  			<option>05:30</option>
+		  			<option>06:00</option>
+		  			<option>06:30</option>
+		  		</select>
+		  		<input class="input-end-date" name="end-date" datepicker ng-model="booking.endDate"/>
+		  	</div>
+		</div>
+
+		<!-- Choose Plane -->
+		<div class="input-section">
+			<div class="input-desc">
+		  		Which plane
+		  	</div>
+		  	<div class="input-control">
+		  		<select class="input-plane" name="plane" ng-model="booking.planeId">
+		  			<option ng-repeat="plane in planes" value="<% plane.id %>"><% plane.name %></option>
+		  		</select>
+		  	</div>
+		</div>
+
+		<!-- Choose Plane -->
+		<div class="input-section">
+			<div class="input-desc">
+		  		Which Instructor
+		  	</div>
+		  	<div class="input-control">
+		  		<select class="input-instructor" name="instructor" ng-model="booking.instructorId">
+		  			<option ng-repeat="instructor in instructors" value="<% instructor.id %>"><% instructor.username %></option>
+		  		</select>
+		  		<span class="icon-user"></span>
+		  	</div>
+		</div>
+
+		<div class="add-booking-bottom">
+			<div class="add-booking-btn" ng-click="addBookingSubmit()"><span class="icon-bolt"></span> Add Booking</div>
+		</div>
+
+	</form>
+
+  </div>
+  <!-- End Modal -->
+
+  <!-- Overlay when modal -->
+  <div class="page-overlay" ng-show="bookingModalVisible"></div>
+
+</div>

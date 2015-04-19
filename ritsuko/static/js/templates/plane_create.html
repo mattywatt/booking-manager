@@ -1,0 +1,35 @@
+<div class="add-plane-page-container">
+  
+  	<div class="form-wrap">
+
+  		<h1>Add Plane</h1>
+
+		<form>
+		  	<!-- Start Booking -->
+		  	<div class="input-section">
+			  	<div class="input-desc">
+			  		Enter a name for the plane (eg Harrier Z-12F)
+			  	</div>
+			  	<div class="input-control">
+			  		<input class="input-plane-name" name="plane-name" ng-model="plane.name"/>
+			  	</div>
+			</div>
+
+			<!-- End Booking -->
+		  	<div class="input-section">
+		  		<div class="input-desc">
+			  		Description
+			  	</div>
+			  	<div class="input-control">
+			  		<input class="input-plane-description" name="plane-description" ng-model="plane.description"/>
+			  	</div>
+			</div>
+
+			<div class="add-plane-bottom">
+				<div class="add-plane-btn" ng-click="addPlaneSubmit()">Create Plane</div>
+			</div>
+
+		</form>
+	</div>
+
+</div>
